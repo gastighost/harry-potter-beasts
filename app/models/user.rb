@@ -9,7 +9,6 @@ class User < ApplicationRecord
   has_many :bookings
 
   before_validation { self.hogwarts_house = hogwarts_house.downcase }
-
   validates :name, :hogwarts_house, :years_of_magic, presence: true
   validates :hogwarts_house, inclusion: { in: %w[gryffindor hufflepuff ravenclaw slytherin],
                                           message: "%{value} is not a house" }
