@@ -34,6 +34,7 @@ gem 'simple_form'
 
 gem 'devise'
 
+gem 'bootstrap'
 
 group :development, :test do
   gem 'pry-byebug'
