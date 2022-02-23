@@ -15,14 +15,20 @@
 
 
    <div class="row">
+    <% @creatures.each do |creature| %>
     <div class="card mb-4 shadow-sm">
-      <% @creatures.each do |name| %>
         <div class="co-12 col-sm-6 col-md-4 mb-3">
-        <div class="card-category" data-aos="zoom-in" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= creature.photo.attached? ? cl_image_path(creature.photo.key) : asset_path('creature_background.jpg') %>)">
-            <%= creature.name %>
-            <%end%>
+        <ul>
+            <li>Name: <%= creature.name %></li>
+            <li>Category: <%= creature.category %></li>
+            <li>Breed: <%= creature.breed %></li>
+            <li>Super Power: <%= creature.super_power %></li>
+            <li>Years of Magic: <%= creature.needed_years_magic %></li>
+        </ul>
+            <%= link_to "Show Creature", creature_path(creature), class: "nav-link" %>
         </div>
     </div>
+    <%end%>
 
   </div>
 
