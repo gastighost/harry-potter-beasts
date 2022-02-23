@@ -16,10 +16,16 @@
             <a class="nav-link" href="#">Search</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Sign up</a>
+            <% if !user_signed_in? %>
+            <%= link_to "Sign Up", new_user_registration_path, class: "nav-link" %>
+            <% end %>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Log in</a>
+            <% if user_signed_in? %>
+            <%= link_to "Sign Out",  destroy_user_session_path, method: :delete, class: "nav-link"%>
+            <% else %>
+            <%= link_to "Sign In", user_session_path, class: "nav-link" %>
+            <% end %>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Profile</a>
@@ -33,7 +39,7 @@
   <div class="container">
     <h1><strong>Rent-a-beast</strong>!</h1>
       <h2>Welcome to the world of Hogwarts!</h2>
-    <p>Have you ever wondered how harmonious neighborhood life could be if you had a dragon? Could you imagine not worrying about your daughters boyfriend, because he knows you have a basilisc in your basement? If so, then rent-a-beast is the solution to all of your problems.</p>
-    <a class="btn btn-flat" href="#">Disover the beasts</a>
+    <p>Have you ever wondered how harmonious neighborhood life could be if you had a dragon? Could you imagine not worrying about your daughter's boyfriend, because he knows you have a basilisc in your basement? If so, then rent-a-beast is the solution to all of your problems.</p>
+    <a class="btn btn-flat" href="#">Discover the beasts</a>
   </div>
 </div>
