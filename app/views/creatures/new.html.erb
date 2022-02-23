@@ -1,0 +1,12 @@
+<h1>Please add a creature</h1>
+
+<%= simple_form_for @creature do |f| %>
+  <%= f.input :name %>
+  <%= f.input :category %>
+  <%= f.input :breed %>
+  <%= f.input :super_power %>
+  <%= f.input :needed_years_magic %>
+  <%= f.submit "Add creature", class: "btn btn-primary" %>
+<% end %>
+
+<%= link_to "Cancel adding creature", creatures_path, class: "btn btn-danger" %>
