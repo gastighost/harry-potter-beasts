@@ -20,9 +20,10 @@
     <div class="card mb-4 shadow-sm">
         <div class="co-12 col-sm-6 col-md-4 mb-3">
         <ul>
+            <%= cl_image_tag creature.photo.key, height: 300, width: 400, crop: :fill, class: "rounded-circle" %>
             <li>Name: <%= creature.name %></li>
-            <li>Super Power: <%= creature.super_power %></li>
-            <li>Years of Magic: <%= creature.needed_years_magic %></li>
+            <li>Category: <%= creature.category %></li>
+            <li>Breed: <%= creature.breed %></li>
         </ul>
             <%= link_to "Show Creature", creature_path(creature), class: "nav-link" %>
         </div>
