@@ -2,3 +2,42 @@
 @import "alert";
 @import "avatar";
 @import "navbar";
+
+h1 {
+  background-color: white;
+  font-family: arial;
+  padding: 30px;
+}
+
+h3 {
+  padding: 20px;
+}
+
+.text-center {
+text-align: center;
+}
+
+.card {
+  background-size: cover;
+  background-position: center;
+  height: 250 px;
+  border-radius: 1px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  color: black;
+  font-weight: bold;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+}
+
+@media(max-width:992px) {
+  .cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
