@@ -1,0 +1,11 @@
+<h1><%= @creature.category %></h1>
+<h1><%= @creature.breed %></h1>
+<h1><%= @creature.super_power %></h1>
+<h1><%= @creature.needed_years_magic %></h1>
+<h1><%= @creature.name %></h1>
+
+<p>The beast which you have selected is called <%= @creature.name %>. It is a <%= @creature.breed %> and belongs to the <%= @creature.category %>. The shown creature is able to perform <%= @creature.super_power %> as its super power and the owner need a minimum of <%= @creature.needed_years_magic %> years witchcraft experience to be able to rent it.</p>
+
+
+<%= link_to "< Back to all", creatures_path %>
+<%= link_to "Book it!", new_creature_booking_path(@creature) %>
