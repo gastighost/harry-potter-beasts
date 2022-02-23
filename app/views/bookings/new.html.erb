@@ -1,0 +1,8 @@
+<h1>Book a creature</h1>
+<h2>How long would you like to book <%= @creature.name %>?</h2>
+
+<%= simple_form_for [ @creature, @booking ] do |f| %>
+  <%= f.input :start_day %>
+  <%= f.input :end_day %>
+  <%= f.submit "Book this creature", class: "btn btn-primary" %>
+<% end %>
