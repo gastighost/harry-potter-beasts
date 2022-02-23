@@ -34,6 +34,8 @@ gem 'simple_form'
 
 gem 'devise'
 
+gem 'faker'
+
 gem 'bootstrap'
 
 group :development, :test do
