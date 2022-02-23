@@ -3,6 +3,7 @@
     <div class="row">
       <div class="col-12">
         <h1>All our Beasts</h1>
+        <h2>Welcome <%= current_user.name %></h2>
         <p>Below you will see all beasts on offer</p>
       </div>
     </div>
@@ -24,6 +25,7 @@
             <li>Name: <%= creature.name %></li>
             <li>Category: <%= creature.category %></li>
             <li>Breed: <%= creature.breed %></li>
+            <li>Owner: <%= @users.find(creature.user_id).name %></li>
         </ul>
             <%= link_to "Show Creature", creature_path(creature), class: "nav-link" %>
         </div>
