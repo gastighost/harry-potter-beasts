@@ -7,7 +7,11 @@
 
 <p>The beast which you have selected is named <%= @creature.name %>. It is a <%= @creature.breed %> and belongs to the <%= @creature.category %> category. The shown creature is able to perform <%= @creature.super_power %> as its super power and its owner needs a minimum of <%= @creature.needed_years_magic %> years witchcraft experience to be able to rent it.</p>
 
+<% if current_user.years_of_magic >= @creature.needed_years_magic %>
 <%= link_to "Book this creature", new_creature_booking_path(@creature) %>
+<% else %>
+<p>You currently do not have the years of magic required to book this animal. You only have <%= current_user.years_of_magic %> years of experience.</p>
+<% end %>
 
 <% if @creature.bookings.length > 0 %>
 <h4>Bookings</h4>
