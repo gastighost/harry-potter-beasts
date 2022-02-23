@@ -4,4 +4,6 @@ class Creature < ApplicationRecord
   has_many :bookings
 
   validates :name, :category, :breed, :super_power, :needed_years_magic, presence: true
+
+  has_one_attached :photo
 end
