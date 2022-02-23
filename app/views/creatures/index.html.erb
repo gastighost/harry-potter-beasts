@@ -13,13 +13,14 @@
 
 <div class="d-flex align-items-center justify-content-between mb-3">
 
-  <div class="card mb-4 shadow-sm">
-    <div class="row">
-      <% @creatures.each do |creature| %>
+
+   <div class="row">
+    <div class="card mb-4 shadow-sm">
+      <% @creatures.each do |name| %>
         <div class="co-12 col-sm-6 col-md-4 mb-3">
-        <% link_to_creature_path(creature), class="text-decoration-none" do %>
         <div class="card-category" data-aos="zoom-in" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= creature.photo.attached? ? cl_image_path(creature.photo.key) : asset_path('creature_background.jpg') %>)">
             <%= creature.name %>
+            <%end%>
         </div>
     </div>
 
