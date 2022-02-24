@@ -66,3 +66,10 @@
 <%= link_to "< Back to all", creatures_path %>
 
 <%= link_to "Back to your bookings", bookings_path %>
+
+<% if @creature.user_id == current_user.id %>
+<%= link_to "Delete Creature",
+                  creature_path(@creature),
+                  method: :delete,
+                  data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+<% end %>
