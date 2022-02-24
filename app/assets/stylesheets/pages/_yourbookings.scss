@@ -1,0 +1,21 @@
+.booking-row {
+  background-color: white;
+  text-align: center;
+  width: 1000px;
+  margin: auto;
+  border: 3px solid #73AD21;;
+}
+
+.booking-list {
+  list-style: none;
+}
+
+.booking-button {
+  color: #4A4A4A;
+  border: 1px solid #4A4A4A;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: bold;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}

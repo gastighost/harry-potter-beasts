@@ -1,10 +1,10 @@
-.banner {
+.banner-home {
   background-size: cover;
   background-position: center;
-  padding: 250px 0;
+  padding: 270px 80px;
 }
 
-.banner h1 {
+.banner-home h1 {
   margin: 0;
   color: #E0379D;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
@@ -12,7 +12,7 @@
   font-weight: bold;
 }
 
-.banner h2 {
+.banner-home h2 {
   margin: 0;
   color: #C3EF0D ;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
@@ -20,7 +20,7 @@
   font-weight: bold;
 }
 
-.banner p {
+.banner-home p {
   font-size: 24px;
   color: white;
   opacity: .9;
