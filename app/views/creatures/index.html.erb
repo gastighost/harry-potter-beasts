@@ -3,6 +3,7 @@
     <div class="row">
       <div class="col-12">
         <h1>All our Beasts</h1>
+        <h2>Welcome <%= current_user.name %></h2>
         <p>Below you will see all beasts on offer</p>
       </div>
     </div>
@@ -20,10 +21,13 @@
     <div class="card mb-4 shadow-sm">
         <div class="co-12 col-sm-6 col-md-4 mb-3">
         <ul>
+            <% if creature.photo.key %>
             <%= cl_image_tag creature.photo.key, height: 300, width: 400, crop: :fill, class: "rounded-circle" %>
+            <% end %>
             <li>Name: <%= creature.name %></li>
             <li>Category: <%= creature.category %></li>
             <li>Breed: <%= creature.breed %></li>
+            <li>Owner: <%= @users.find(creature.user_id).name %></li>
         </ul>
             <%= link_to "Show Creature", creature_path(creature), class: "nav-link" %>
         </div>
