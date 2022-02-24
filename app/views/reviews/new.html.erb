@@ -1,0 +1,10 @@
+<h1>Add a review</h1>
+<h2>How did you find <%= @creature.name %>?</h2>
+
+<%= simple_form_for [ @creature, @review ] do |f| %>
+  <%= f.input :rating %>
+  <%= f.input :comment %>
+  <%= f.submit "Submit Review", class: "btn btn-primary" %>
+<% end %>
+
+<%= link_to "Cancel Review", creature_path(@creature), class: "btn btn-danger" %>

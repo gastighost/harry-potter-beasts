@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :reviews, only: %i[new create]
   end
   resources :bookings, only: %i[index destroy]
+  resources :reviews, only: %i[destroy]
 end
 
 ## Heroku comment
