@@ -10,30 +10,24 @@
 
 
 
-  <! make a grid for the cards>
-<div class="container py-5">
-
-<div class="d-flex align-items-center justify-content-between mb-3">
-
-
-   <div class="row">
-    <% @creatures.each do |creature| %>
-    <div class="card mb-4 shadow-sm">
-        <div class="co-12 col-sm-6 col-md-4 mb-3">
-        <ul>
-            <% if creature.photo.key %>
-            <%= cl_image_tag creature.photo.key, height: 300, width: 400, crop: :fill, class: "rounded-circle" %>
-            <% end %>
-            <li>Name: <%= creature.name %></li>
-            <li>Category: <%= creature.category %></li>
-            <li>Breed: <%= creature.breed %></li>
-            <li>Owner: <%= @users.find(creature.user_id).name %></li>
-        </ul>
-            <%= link_to "Show Creature", creature_path(creature), class: "nav-link" %>
-        </div>
+  <div class="container">
+    <div class="cards">
+      <% @creatures.each do |creature| %>
+      <div class="card mb-4 shadow-sm">
+          <div class="card-beast">
+          <div class="background-picture">
+              <% if creature.photo.key %>
+              <%= cl_image_tag creature.photo.key, height: 100, width: 150, crop: :fill, class: "rounded-circle-image" %>
+              <% end %>
+             </div>
+          <ul>
+              <li>Name: <%= creature.name %></li>
+              <li>Category: <%= creature.category %></li>
+              <li>Breed: <%= creature.breed %></li>
+              <li>Owner: <%= @users.find(creature.user_id).name %></li>
+          </ul>
+              <%= link_to "Show Creature", creature_path(creature), class: "nav-link" %>
+          </div>
+      </div>
+      <%end%>
     </div>
-    <%end%>
-
-  </div>
-
-</div>
