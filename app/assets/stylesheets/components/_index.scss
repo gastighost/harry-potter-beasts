@@ -4,13 +4,16 @@
 @import "navbar";
 
 
-
-h3 {
-  padding: 20px;
+.index-fix {
+text-align: left !important;
 }
 
 .text-center {
 text-align: center;
+}
+
+.border-fix {
+border-radius: 0 !important;
 }
 
 .card {
@@ -21,27 +24,126 @@ text-align: center;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
+  align-items: flex-start;
   color: black;
-  font-weight: bold;
+  border-radius: 10px;
+  box-shadow: 10px;
+  position: relative;
 }
 
 .cards {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
+  align-items: left;
+  margin: 20px 0;
 }
 
 @media(max-width:992px) {
   .cards {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .container-index {
+    width: 700px;
   }
 }
 
+@media(max-width:700px) {
+  .cards {
+    grid-template-columns: 1fr 1fr;
+  }
+  .container-index {
+    width: 500px;
+  }
+}
+
+@media(max-width:400px) {
+  .cards {
+    grid-template-columns: 1fr 1fr;
+  }
+  .container-index {
+    width: 700px;
+  }
+}
 .banner h1 {
   margin: 0;
   color: #E0379D;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   font-size: 60px;
   font-weight: bold;
+}
+
+.rounded-circle-image {
+  border-radius: 10px 10px 0px 0px;
+  align-items: center;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-beast-footer {
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 10px;
+
+}
+
+.nav-link-cards {
+  border-color: grey;
+  background-color: whitesmoke;
+  border-radius: 10px;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  padding: 10px;
+  position: absolute;
+  bottom: 5px;
+  left: 140px;
+  border-width: 1px;
+}
+
+.nav-link-cards:hover {
+  background-color: lightgrey;
+}
+
+.list-beast {
+  list-style: none;
+}
+
+.font-size-name {
+  font-size: 30px;
+}
+
+.ul-bookings {
+  list-style: none;
+}
+
+.button-fix {
+  position: static;
+}
+.button-search {
+  background-color: white;
+  border-color: grey;
+  border-radius: 10px;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  padding: 10px;
+  margin: 20px 0;
+  border-width: 1px;
+  color: darkblue;
+}
+
+.button-search:hover {
+  background-color: lightgrey;
+}
+
+
+.form-control {
+  background-color: white;
+}
+
+.row-justify-content-left {
+  padding: 10px;
+  border-radius: 10px;
 }

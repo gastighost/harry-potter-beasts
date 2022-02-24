@@ -1,9 +1,9 @@
   <div class="container mt-3">
-    <div class="row justify-content-left">
-      <div class="col-12">
-        <h1>All our beasts</h1>
+    <div class="row-justify-content-left">
+      <div class="col-12 header-index">
+        <h1><strong>All our beasts</strong></h1>
         <h2>Welcome <%= current_user.name %>!</h2>
-        <p>Search directly for a certain beast or browse below!</p>
+        <p class="index-fix">Search directly for a certain beast or browse below!</p>
       </div>
     <div class="col-sm-5">
       <%= form_tag creatures_path, method: :get do %>
@@ -12,38 +12,33 @@
           class: "form-control",
           placeholder: "Find a creature"
         %>
-        <%= submit_tag "Search", class: "btn btn-primary" %>
+        <%= submit_tag "Search", class: "button-search" %>
       <% end %>
     </div>
   </div>
 
-<div class="container">
+<div class="container-index">
 <%= link_to "See your bookings", bookings_path %>
 </div>
 
-<! make a grid for the cards>
-<div class="container py-5">
-</div>
-
-<div class="d-flex align-items-center justify-content-between mb-3">
-
-
-  <div class="row">
-    <% @creatures.each do |creature| %>
+    <div class="cards">
+      <% @creatures.each do |creature| %>
       <div class="card mb-4 shadow-sm">
-        <div class="co-12 col-sm-6 col-md-4 mb-3">
-            <ul>
-              <% if creature.photo.key %>
-              <%= cl_image_tag creature.photo.key, height: 300, width: 400, crop: :fill, class: "rounded-circle" %>
-              <% end %>
-              <li>Name: <%= creature.name %></li>
-              <li>Category: <%= creature.category %></li>
-              <li>Breed: <%= creature.breed %></li>
-              <li>Owner: <%= @users.find(creature.user_id).name %></li>
-            </ul>
-            <%= link_to "Show Creature", creature_path(creature), class: "nav-link" %>
-        </div>
+          <div>
+                <% if creature.photo.key %>
+                <%= cl_image_tag creature.photo.key, height: 150, width: 100, class: "rounded-circle-image" %>
+                <% end %>
+            <div class="card-beast-footer">
+              <ul class="list-beast">
+                  <li class="font-size-name"> <strong><%= creature.name %></strong></li>
+                  <li><strong>Category: </strong><%= creature.category %></li>
+                  <li><strong>Breed: </strong><%= creature.breed %></li>
+                  <li><strong>Owner: </strong><%= @users.find(creature.user_id).name %></li>
+              </ul>
+                  <br>
+                  <%= link_to "Show Creature", creature_path(creature), class: "nav-link-cards" %>
+            </div>
+          </div>
       </div>
     <%end%>
   </div>
-</div>
