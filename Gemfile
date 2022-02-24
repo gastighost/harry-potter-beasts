@@ -42,6 +42,8 @@ gem 'dotenv-rails', groups: [:development, :test]
 
 gem 'cloudinary', '~> 1.16.0'
 
+gem 'validates_timeliness', '~> 6.0.0.beta2'
+
 group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'

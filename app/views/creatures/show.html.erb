@@ -1,12 +1,38 @@
+<% if @creature.photo.key %>
 <%= cl_image_tag @creature.photo.key, height: 300, width: 400, crop: :fill, class: "rounded-circle" %>
+<% end %>
+
 <h1>Name: <%= @creature.name %></h1>
 <h1>Category: <%= @creature.category %></h1>
 <h1>Breed: <%= @creature.breed %></h1>
 <h1>Spell: <%= @creature.super_power %></h1>
 <h1>Required Years of Magic to rent beast: <%= @creature.needed_years_magic %></h1>
 
+<p>The beast which you have selected is named <%= @creature.name %>. It is a <%= @creature.breed %> and belongs to the <%= @creature.category %> category. The shown creature is able to perform <%= @creature.super_power %> as its super power and its owner needs a minimum of <%= @creature.needed_years_magic %> years witchcraft experience to be able to rent it.</p>
 
-<p>The beast which you have selected is called <%= @creature.name %>. It is a <%= @creature.breed %> and belongs to the <%= @creature.category %>. The shown creature is able to perform <%= @creature.super_power %> as its super power and the owner need a minimum of <%= @creature.needed_years_magic %> years witchcraft experience to be able to rent it.</p>
+<% if current_user.years_of_magic >= @creature.needed_years_magic && current_user.id != @creature.user_id %>
+<%= link_to "Book this creature", new_creature_booking_path(@creature) %>
+<% elsif current_user.years_of_magic < @creature.needed_years_magic && current_user.id != @creature.user_id %>
+<p>You currently do not have the years of magic required to book this creature. You only have <%= current_user.years_of_magic %> years of experience.</p>
+<% else %>
+<p>You own this creature. You cannot book <%= @creature.name %>.</p>
+<% end %>
 
+<% if @creature.bookings.length > 0 %>
+<h4>Bookings</h4>
+<ul class="list-group">
+  <% @creature.bookings.each do |booking| %>
+    <li class="list-group-item">
+    <%= @creature.name.capitalize %> is booked from <%= booking.start_day %> to <%= booking.end_day %>.
+    <% if booking.user_id == current_user.id %>
+    <%= link_to "Cancel your booking",
+                  booking_path(booking),
+                  method: :delete,
+                  data: { confirm: "Are you sure?" } %>
+    </li>
+    <% end %>
+  <% end %>
+</ul>
+<% end %>
 
 <%= link_to "< Back to all", creatures_path %>
