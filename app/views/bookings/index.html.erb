@@ -14,7 +14,7 @@
     <% @bookings.each do |booking| %>
       <% if booking.user_id == @current_user.id %>
         <div class="card shadow-sm border-fix">
-        <div class="col-12 col-sm-6 col-md-4 mb-3 mono-fix">
+        <div class="col-12 col-sm-6 col-md-4 mono-fix">
         <% if Creature.find(booking.creature_id).photo.key %>
           <%= cl_image_tag Creature.find(booking.creature_id).photo.key, height: 200, width: 200, crop: :fill, class: "rounded-circle" %>
         <% end %>

@@ -116,10 +116,12 @@ border-radius: 0 !important;
 
 .ul-bookings {
   list-style: none;
+  padding: 0;
 }
 
 .button-fix {
   position: static;
+  margin-bottom: 4px;
 }
 .button-search {
   background-color: white;
