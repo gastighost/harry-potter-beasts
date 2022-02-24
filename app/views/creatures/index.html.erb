@@ -1,14 +1,25 @@
-
   <div class="container mt-3">
-    <div class="row">
+    <div class="row justify-content-left">
       <div class="col-12">
-        <h1>All our Beasts</h1>
-        <h2>Welcome <%= current_user.name %></h2>
-        <p>Below you will see all beasts on offer</p>
+        <h1>All our beasts</h1>
+        <h2>Welcome <%= current_user.name %>!</h2>
+        <p>Search directly for a certain beast or browse below!</p>
       </div>
+    <div class="col-sm-5">
+      <%= form_tag creatures_path, method: :get do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Find a creature"
+        %>
+        <%= submit_tag "Search", class: "btn btn-primary" %>
+      <% end %>
     </div>
+  </div>
 
-
+<div class="container">
+<%= link_to "See your bookings", bookings_path %>
+</div>
 
   <div class="container">
     <div class="cards">
