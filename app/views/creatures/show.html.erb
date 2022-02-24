@@ -20,6 +20,13 @@
   <p>You currently do not have the years of magic required to book this creature. You only have <%= current_user.years_of_magic %> years of experience.</p>
   <% else %>
   <p>You own this creature. You cannot book <%= @creature.name %>.</p>
+
+  <% if current_user.id != @creature.user_id && current_user.years_of_magic >= @creature.needed_years_magic %>
+  <%= link_to "Leave a review", new_creature_review_path(@creature) %>
+  <% elsif current_user.id != @creature.user_id && current_user.years_of_magic < @creature.needed_years_magic %>
+  <p>How can you even review a creature you cannot afford?</p>
+  <% else %>
+  <p>You cannot comment on your own creature.</p>
   <% end %>
 
   <% if @creature.bookings.length > 0 %>
@@ -39,9 +46,17 @@
   </ul>
   <% end %>
 
+
+
   <%= link_to "Back to all", creatures_path %>
   <br>
   <%= link_to "Back to your bookings", bookings_path %>
   <br>
   <br>
-</div>
+  <% if @creature.user_id == current_user.id %>
+  <%= link_to "Delete Creature",
+                    creature_path(@creature),
+                    method: :delete,
+                    data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+  <% end %>
+  </div>
