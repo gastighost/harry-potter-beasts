@@ -2,6 +2,12 @@ class CreaturesController < ApplicationController
   def index
     @users = User.all
     @creatures = Creature.all
+
+    if params[:query].present?
+      @creatures = Creature.where("name ILIKE ?", "%#{params[:query]}%")
+    else
+      @creatures = Creature.all
+    end
   end
 
   def show
