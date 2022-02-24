@@ -5,8 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :creatures, dependent: :destroy
-  has_many :reviews
-  has_many :bookings
+  has_many :reviews, dependent: :destroy
+  has_many :bookings, dependent: :destroy
 
   before_validation { self.hogwarts_house = hogwarts_house.downcase }
   validates :name, :hogwarts_house, :years_of_magic, presence: true
