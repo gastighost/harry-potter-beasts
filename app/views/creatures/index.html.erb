@@ -1,9 +1,9 @@
   <div class="container mt-3">
     <div class="row-justify-content-left">
-      <div class="col-12">
+      <div class="col-12 header-index">
         <h1><strong>All our beasts</strong></h1>
         <h2>Welcome <%= current_user.name %>!</h2>
-        <p>Search directly for a certain beast or browse below!</p>
+        <p class="index-fix">Search directly for a certain beast or browse below!</p>
       </div>
     <div class="col-sm-5">
       <%= form_tag creatures_path, method: :get do %>
