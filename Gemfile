@@ -44,6 +44,8 @@ gem 'cloudinary', '~> 1.16.0'
 
 gem 'validates_timeliness', '~> 6.0.0.beta2'
 
+gem 'nokogiri'
+
 group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'
