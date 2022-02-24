@@ -20,6 +20,7 @@
   <p>You currently do not have the years of magic required to book this creature. You only have <%= current_user.years_of_magic %> years of experience.</p>
   <% else %>
   <p>You own this creature. You cannot book <%= @creature.name %>.</p>
+  <% end %>
 
   <% if current_user.id != @creature.user_id && current_user.years_of_magic >= @creature.needed_years_magic %>
   <%= link_to "Leave a review", new_creature_review_path(@creature) %>
@@ -46,7 +47,25 @@
   </ul>
   <% end %>
 
-
+<% if @creature.reviews.length > 0 %>
+  <h4>Reviews</h4>
+  <h5>Average rating: <%= @average %> / 5</h5>
+  <ul class="list-group">
+    <% @creature.reviews.each do |review| %>
+      <li class="list-group-item">
+      Rating: <%= review.rating %> / 5
+      <br>
+      Comment: <%= review.comment %>
+      <% if review.user_id == current_user.id %>
+      <%= link_to "Delete Review",
+                    review_path(review),
+                    method: :delete,
+                    data: { confirm: "Are you sure?" } %>
+      </li>
+      <% end %>
+    <% end %>
+  </ul>
+<% end %>
 
   <%= link_to "Back to all", creatures_path %>
   <br>
