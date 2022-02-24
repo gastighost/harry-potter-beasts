@@ -21,7 +21,6 @@
 <%= link_to "See your bookings", bookings_path %>
 </div>
 
-
     <div class="cards">
       <% @creatures.each do |creature| %>
       <div class="card mb-4 shadow-sm">
@@ -40,5 +39,6 @@
                   <%= link_to "Show Creature", creature_path(creature), class: "nav-link-cards" %>
             </div>
           </div>
-    </div>
-      <%end%>
+      </div>
+    <%end%>
+  </div>
