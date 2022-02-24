@@ -18,7 +18,11 @@
 <p>You own this creature. You cannot book <%= @creature.name %>.</p>
 <% end %>
 
+<% if current_user.id != @creature.user_id %>
 <%= link_to "Leave a review", new_creature_review_path(@creature) %>
+<% else %>
+<p>You cannot comment on your own creature.</p>
+<% end %>
 
 <% if @creature.bookings.length > 0 %>
 <h4>Bookings</h4>
@@ -39,6 +43,7 @@
 
 <% if @creature.reviews.length > 0 %>
 <h4>Reviews</h4>
+<h5>Average rating: <%= @average %> / 5</h5>
 <ul class="list-group">
   <% @creature.reviews.each do |review| %>
     <li class="list-group-item">
