@@ -12,6 +12,11 @@ class CreaturesController < ApplicationController
 
   def show
     @creature = Creature.find(params[:id])
+    sum = 0
+    @creature.reviews.each do |review|
+      sum += review.rating
+    end
+    @average = (sum.to_f / @creature.reviews.length).round(2)
   end
 
   def new

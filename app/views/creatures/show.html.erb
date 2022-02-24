@@ -43,6 +43,7 @@
 
 <% if @creature.reviews.length > 0 %>
 <h4>Reviews</h4>
+<h5>Average rating: <%= @average %> / 5</h5>
 <ul class="list-group">
   <% @creature.reviews.each do |review| %>
     <li class="list-group-item">
