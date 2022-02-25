@@ -1,11 +1,7 @@
 <div class="container-show">
 <br>
   <% if @creature.photo.key %>
-<<<<<<< HEAD
   <%= cl_image_tag @creature.photo.key, height: 150, width: 150, crop: :fill, class: "image-show" %>
-=======
-  <%= cl_image_tag @creature.photo.key, height: 250, width: 250, crop: :fill, class: "image-show" %>
->>>>>>> master
   <% end %>
   <br>
   <h1><strong><%= @creature.name %></strong></h1>
