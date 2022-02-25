@@ -23,7 +23,7 @@
 
     <div class="cards">
       <% @creatures.each do |creature| %>
-      <div class="card mb-4 shadow-sm">
+      <div class="<%= @users.find(creature.user_id).dark_magic ? "card-dark" : "card" %> mb-4 shadow-sm">
           <div>
                 <% if creature.photo.key %>
                 <%= cl_image_tag creature.photo.key, height: 150, width: 100, class: "rounded-circle-image" %>
