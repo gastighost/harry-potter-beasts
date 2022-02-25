@@ -15,8 +15,14 @@ User.destroy_all
 puts "Destroying all users"
 
 # Creating a user
-dumbledore = User.create!(name: "Albus Percival Wulfric Brian Dumbledore", email: "albus@gmail.com", password: "123456",
-                         hogwarts_house: "gryffindor", years_of_magic: 732, owner: true, dark_magic: false)
+dumbledore = User.create!(name: "Albus P. W. B. Dumbledore", email: "albus@gmail.com", password: "123456",
+                          hogwarts_house: "gryffindor", years_of_magic: 732, owner: true, dark_magic: false)
+
+hagrid = User.create!(name: "Rubeus Hagrid", email: "rubeus@gmail.com", password: "123456",
+                      hogwarts_house: "gryffindor", years_of_magic: 50, owner: true, dark_magic: false)
+
+riddle = User.create!(name: "Tom M. Riddle", email: "tom@gmail.com", password: "123456",
+                      hogwarts_house: "slytherin", years_of_magic: 100, owner: true, dark_magic: true)
 
 # Scraping beasts
 url = "https://harrypotter.fandom.com/wiki/List_of_creatures"
@@ -113,6 +119,6 @@ def creating_spirits(user, creatures)
   puts "Spirit created"
 end
 
-30.times { creating_beasts(dumbledore, beasts_array) }
-20.times { creating_beings(dumbledore, beings_array) }
+30.times { creating_beasts(hagrid, beasts_array) }
+20.times { creating_beings(riddle, beings_array) }
 10.times { creating_spirits(dumbledore, spirits_array) }
