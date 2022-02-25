@@ -1,3 +1,5 @@
+<div class="container mt-5 w-75">
+
 <h1>Please add a creature</h1>
 
 <%= simple_form_for @creature do |f| %>
@@ -10,4 +12,5 @@
   <%= f.submit "Add creature", class: "btn btn-primary" %>
 <% end %>
 
-<%= link_to "Cancel adding creature", creatures_path, class: "btn btn-danger" %>
+<%= link_to "Cancel adding creature", creatures_path, class: "btn btn-danger mt-3" %>
+</div>

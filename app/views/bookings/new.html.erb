@@ -1,3 +1,4 @@
+<div class="container mt-5 w-75">
 <h1>Book a creature</h1>
 <h2>How long would you like to book <%= @creature.name %>?</h2>
 
@@ -7,4 +8,5 @@
   <%= f.submit "Book this creature", class: "btn btn-primary" %>
 <% end %>
 
-<%= link_to "Cancel Booking", creature_path(@creature), class: "btn btn-danger" %>
+<%= link_to "Cancel Booking", creature_path(@creature), class: "btn btn-danger mt-3" %>
+</div>
