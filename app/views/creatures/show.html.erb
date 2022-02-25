@@ -16,7 +16,7 @@
   <%= link_to "Book this creature", new_creature_booking_path(@creature) %>
   <br>
   <% elsif current_user.years_of_magic < @creature.needed_years_magic && current_user.id != @creature.user_id %>
-  <p>You currently do not have the years of magic required to book this creature. You only have <%= current_user.years_of_magic %> years of experience.</p>
+  <p class="alert-red">You currently do not have the years of magic required to book this creature. You only have <%= current_user.years_of_magic %> years of experience.</p>
   <% else %>
   <p>You own this creature. You cannot book <%= @creature.name %>.</p>
   <% end %>
@@ -27,9 +27,9 @@
   <p>Book first before reviewing.</p>
   <br>
   <% elsif current_user.id != @creature.user_id && current_user.years_of_magic < @creature.needed_years_magic %>
-  <p>How can you even review a creature you cannot afford?</p>
+  <p class="alert-red">How can you even review a creature you cannot afford?</p>
   <% else %>
-  <p>You cannot comment on your own creature.</p>
+  <p class="alert-red">You cannot comment on your own creature.</p>
   <% end %>
 
   <% if @creature.bookings.length > 0 %>
