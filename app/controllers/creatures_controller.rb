@@ -50,6 +50,6 @@ class CreaturesController < ApplicationController
   private
 
   def creature_params
-    params.require(:creature).permit(:name, :category, :breed, :super_power, :needed_years_magic)
+    params.require(:creature).permit(:name, :category, :breed, :super_power, :needed_years_magic, :photo)
   end
 end
