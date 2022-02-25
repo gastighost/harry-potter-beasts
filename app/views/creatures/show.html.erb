@@ -1,7 +1,7 @@
 <div class="container-show">
 <br>
   <% if @creature.photo.key %>
-  <%= cl_image_tag @creature.photo.key, height: 300, width: 300, crop: :fill, class: "image-show" %>
+  <%= cl_image_tag @creature.photo.key, height: 250, width: 250, crop: :fill, class: "image-show" %>
   <% end %>
   <br>
   <br>
@@ -24,6 +24,7 @@
 
   <% if current_user.id != @creature.user_id && current_user.years_of_magic >= @creature.needed_years_magic %>
   <%= link_to "Leave a review", new_creature_review_path(@creature) %>
+  <br>
   <% elsif current_user.id != @creature.user_id && current_user.years_of_magic < @creature.needed_years_magic %>
   <p>How can you even review a creature you cannot afford?</p>
   <% else %>
