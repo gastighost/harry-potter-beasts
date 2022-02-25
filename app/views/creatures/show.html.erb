@@ -1,15 +1,14 @@
 <div class="container-show">
 <br>
   <% if @creature.photo.key %>
-  <%= cl_image_tag @creature.photo.key, height: 300, width: 300, crop: :fill, class: "image-show" %>
+  <%= cl_image_tag @creature.photo.key, height: 150, width: 150, crop: :fill, class: "image-show" %>
   <% end %>
   <br>
-  <br>
-  <h1><%= @creature.name %></h1>
-  <h1><strong>Category:</strong> <%= @creature.category %></h1>
-  <h1><strong>Breed:</strong> <%= @creature.breed %></h1>
-  <h1><strong>Spell:</strong> <%= @creature.super_power %></h1>
-  <h1><strong>Years of magic:</strong> <%= @creature.needed_years_magic %></h1>
+  <h1><strong><%= @creature.name %></strong></h1>
+  <h5><strong>Category:</strong> <%= @creature.category %></h5>
+  <h5><strong>Breed:</strong> <%= @creature.breed %></h5>
+  <h5><strong>Spell:</strong> <%= @creature.super_power %></h5>
+  <h5><strong>Years of magic:</strong> <%= @creature.needed_years_magic %></h5>
   <br>
   <p>The beast which you have selected is named <%= @creature.name %>. It is a <%= @creature.breed %> and belongs to the <%= @creature.category %> category. The shown creature is able to perform <%= @creature.super_power %> as its super power and its owner needs a minimum of <%= @creature.needed_years_magic %> years witchcraft experience to be able to rent it.</p>
 
