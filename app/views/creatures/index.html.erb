@@ -23,22 +23,21 @@
 
     <div class="cards">
       <% @creatures.each do |creature| %>
-      <div class="<%= @users.find(creature.user_id).dark_magic ? "card-dark" : "card" %> mb-4 shadow-sm">
-          <div>
+        <div class="card mb-4 shadow-sm">
                 <% if creature.photo.key %>
                 <%= cl_image_tag creature.photo.key, height: 200, width: 100, class: "rounded-circle-image" %>
                 <% end %>
-            <div class="card-beast-footer">
-              <ul class="list-beast">
-                  <li class="font-size-name"> <strong><%= creature.name %></strong></li>
-                  <li><strong>Category: </strong><%= creature.category %></li>
-                  <li><strong>Breed: </strong><%= creature.breed %></li>
-                  <li><strong>Owner: </strong><%= @users.find(creature.user_id).name %></li>
-              </ul>
-              <br>
+              <div class="card-beast-footer">
+                <ul class="list-beast">
+                    <li class="font-size-name"> <strong><%= creature.name %></strong></li>
+                    <li><strong>Category: </strong><%= creature.category %></li>
+                    <li><strong>Breed: </strong><%= creature.breed %></li>
+                    <li><strong>Owner: </strong><%= @users.find(creature.user_id).name %></li>
+                </ul>
+                  <br>
                   <br>
                   <%= link_to "Show Creature", creature_path(creature), class: "nav-link-cards" %>
-          </div>
-      </div>
-    <%end%>
-  </div>
+              </div>
+        </div>
+      <%end%>
+    </div>
