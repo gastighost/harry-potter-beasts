@@ -1,7 +1,11 @@
 <div class="container-show">
 <br>
   <% if @creature.photo.key %>
+<<<<<<< HEAD
   <%= cl_image_tag @creature.photo.key, height: 150, width: 150, crop: :fill, class: "image-show" %>
+=======
+  <%= cl_image_tag @creature.photo.key, height: 250, width: 250, crop: :fill, class: "image-show" %>
+>>>>>>> master
   <% end %>
   <br>
   <h1><strong><%= @creature.name %></strong></h1>
@@ -21,8 +25,11 @@
   <p>You own this creature. You cannot book <%= @creature.name %>.</p>
   <% end %>
 
-  <% if current_user.id != @creature.user_id && current_user.years_of_magic >= @creature.needed_years_magic %>
+  <% if current_user.id != @creature.user_id && current_user.years_of_magic >= @creature.needed_years_magic && @user_bookings.include?(current_user.id) %>
   <%= link_to "Leave a review", new_creature_review_path(@creature) %>
+  <% elsif current_user.id != @creature.user_id && current_user.years_of_magic >= @creature.needed_years_magic && !@user_bookings.include?(current_user.id) %>
+  <p>Book first before reviewing.</p>
+  <br>
   <% elsif current_user.id != @creature.user_id && current_user.years_of_magic < @creature.needed_years_magic %>
   <p>How can you even review a creature you cannot afford?</p>
   <% else %>

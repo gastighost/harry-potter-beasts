@@ -14,17 +14,21 @@
     <% @bookings.each do |booking| %>
       <% if booking.user_id == @current_user.id %>
         <div class="card shadow-sm border-fix">
-        <div class="col-12 col-sm-6 col-md-4 mono-fix">
+        <div class="col-12 col-sm-6 col-md-8 mono-fix">
         <% if Creature.find(booking.creature_id).photo.key %>
           <%= cl_image_tag Creature.find(booking.creature_id).photo.key, height: 200, width: 200, crop: :fill, class: "rounded-circle" %>
         <% end %>
             <ul class="ul-bookings">
-              <li><strong>Name:</strong> <%= Creature.find(booking.creature_id).name %></li>
+              <li class="font-size-name"><strong> <%= Creature.find(booking.creature_id).name %></strong></li>
               <li><strong>Category:</strong> <%= Creature.find(booking.creature_id).category %></li>
               <li><strong>Breed:</strong> <%= Creature.find(booking.creature_id).breed %></li>
               <li><strong>Owner:</strong> <%= @users.find(Creature.find(booking.creature_id).user_id).name %></li>
+              <li><strong>Booked from: </strong><%= booking.start_day %> to <%= booking.end_day %></li>
+              <br>
             </ul>
             <%= link_to "Show Creature", creature_path(Creature.find(booking.creature_id)), class: "nav-link-cards button-fix" %>
+            <%= link_to "Cancel Booking", booking_path(booking), method: :delete, class: "btn btn-danger" %>
+
         </div>
       </div>
       <% end %>

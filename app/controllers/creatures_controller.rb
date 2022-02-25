@@ -4,7 +4,7 @@ class CreaturesController < ApplicationController
     @creatures = Creature.all
 
     if params[:query].present?
-      @creatures = Creature.where("name ILIKE ?", "%#{params[:query]}%")
+      @creatures = Creature.search_by_name_and_category_and_breed(params[:query])
     else
       @creatures = Creature.all
     end
@@ -17,6 +17,7 @@ class CreaturesController < ApplicationController
       sum += review.rating
     end
     @average = (sum.to_f / @creature.reviews.length).round(2)
+    @user_bookings = @creature.bookings.map { |booking| booking.user_id }
   end
 
   def new
@@ -49,6 +50,6 @@ class CreaturesController < ApplicationController
   private
 
   def creature_params
-    params.require(:creature).permit(:name, :category, :breed, :super_power, :needed_years_magic)
+    params.require(:creature).permit(:name, :category, :breed, :super_power, :needed_years_magic, :photo)
   end
 end

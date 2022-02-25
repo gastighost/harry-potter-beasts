@@ -1,6 +1,6 @@
 .container h1 {
   margin: 0;
-  font-size: 33px;
+  font-size: 28px;
   position: central;
   text-align: center;
 }
@@ -15,8 +15,12 @@
   position: center;
   background-color: white;
   text-align: center;
-  width: 1000px;
+  width: 830px;
   margin: auto;
+  border: 3px solid grey;
+  h1 {
+    font-size: 28px;
+  }
 }
 
 .image-show{
