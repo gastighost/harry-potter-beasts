@@ -17,6 +17,7 @@ class CreaturesController < ApplicationController
       sum += review.rating
     end
     @average = (sum.to_f / @creature.reviews.length).round(2)
+    @user_bookings = @creature.bookings.map { |booking| booking.user_id }
   end
 
   def new

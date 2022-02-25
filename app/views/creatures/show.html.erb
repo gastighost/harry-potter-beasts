@@ -22,8 +22,10 @@
   <p>You own this creature. You cannot book <%= @creature.name %>.</p>
   <% end %>
 
-  <% if current_user.id != @creature.user_id && current_user.years_of_magic >= @creature.needed_years_magic %>
+  <% if current_user.id != @creature.user_id && current_user.years_of_magic >= @creature.needed_years_magic && @user_bookings.include?(current_user.id) %>
   <%= link_to "Leave a review", new_creature_review_path(@creature) %>
+  <% elsif current_user.id != @creature.user_id && current_user.years_of_magic >= @creature.needed_years_magic && !@user_bookings.include?(current_user.id) %>
+  <p>Book first before reviewing.</p>
   <br>
   <% elsif current_user.id != @creature.user_id && current_user.years_of_magic < @creature.needed_years_magic %>
   <p>How can you even review a creature you cannot afford?</p>
