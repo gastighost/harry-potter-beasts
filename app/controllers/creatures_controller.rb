@@ -4,7 +4,7 @@ class CreaturesController < ApplicationController
     @creatures = Creature.all
 
     if params[:query].present?
-      @creatures = Creature.where("name ILIKE ?", "%#{params[:query]}%")
+      @creatures = Creature.search_by_name_and_category_and_breed(params[:query])
     else
       @creatures = Creature.all
     end
